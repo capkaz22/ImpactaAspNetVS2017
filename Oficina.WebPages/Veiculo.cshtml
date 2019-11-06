@@ -1,0 +1,99 @@
+﻿
+@using Oficina.WebPages;
+@{
+    var aplicacao = new VeiculoAplicacao();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastro de veículos</title>
+</head>
+<body>
+    @if (IsPost)//identifica se os dados foram postados
+    {
+        aplicacao.Gravar();
+        Response.Redirect("veiculo");///limpar a tela, abrindo a tela como se fosse a primeira vez
+    }
+    <h1>Cadastro de veículos</h1>
+    <hr />
+    <form method="post">
+        <label>Marca</label>
+        <select onchange="obterModelos(this.value)" name="marca">
+            <option value="">Selecione</option>
+            @foreach (var marca in aplicacao.Marcas)
+            {
+                <option value="@marca.Id" selected="@Convert.ToBoolean(marca.Id.ToString() == aplicacao.MarcaSelecionada)">@marca.Nome</option>
+            }
+        </select>
+        <br />
+
+        <label>Modelo</label>
+        <select name="modelo">
+            <option value="">Selecione</option>
+            @foreach (var modelo in aplicacao.Modelos)
+            {
+                <option value="@modelo.Id">@modelo.Nome</option>
+            }
+        </select>
+        <br />
+
+        <label>Cor</label>
+        <select name="cor">
+            <option value="">Selecione</option>
+            @foreach (var cor in aplicacao.Cores)
+            {
+                <option value="@cor.Id">@cor.Nome</option>
+            }
+        </select>
+        <br />
+
+        <label>Combustivel</label>
+        <select name="combustivel">
+            <option value="">Selecione</option>
+            @foreach (var combustivel in aplicacao.Combustiveis)
+            {
+                <option value="@((int)combustivel)">@combustivel</option>
+            }
+        </select>
+        <br />
+
+        <label>Cambio</label>
+        <select name="cambio">
+            <option value="">Selecione</option>
+            @foreach (var cambio in aplicacao.Cambios)
+            {
+                <option value="@((int)cambio)">@cambio</option>
+            }
+        </select>
+        <br />
+
+        <label for="placa">Placa</label>
+        <input type="text" name="placa" value="placa" />
+        <br />
+
+        <label for="ano">Ano</label>
+        <input type="text" name="ano" value="ano" />
+        <br />
+
+        <label for="observacao">Observação</label>
+        <br />
+        <textarea name="observacao" id="observacao" cols="40" rows="10"></textarea>
+        <br />
+
+        <input type="submit" value="Gravar"/>
+
+
+    </form>
+    <script type="text/javascript">
+        function obterModelos(marcaId) {
+            const nomePagina = document.location.pathname;
+            document.location.href = nomePagina + "?marcaId=" + marcaId;///recarregar a página
+        }
+
+    </script>
+
+</body>
+</html>
