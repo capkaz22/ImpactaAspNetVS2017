@@ -9,7 +9,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Cadastro de veículos</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        label {
+            width: 100px;
+            float: left;
+            /*display: inline-block;*/
+        }
+
+        input, select {
+            min-width: 200px;
+            min-height: 24px;
+            margin-bottom: 5px;
+        }
+
+            input[type=submit] {
+                width: 300px;
+            }
+    </style>
+
 </head>
 <body>
     @if (IsPost)//identifica se os dados foram postados

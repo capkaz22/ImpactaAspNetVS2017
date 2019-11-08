@@ -53,7 +53,7 @@ namespace Oficina.WebPages
 
         public void Gravar()
         {
-            var veiculo = new Veiculo();
+            var veiculo = new VeiculoPasseio();
             var formulario = HttpContext.Current.Request.Form;
             veiculo.Ano = Convert.ToInt32(formulario["ano"]);
             veiculo.Cambio = (Cambio)Convert.ToInt32(formulario["cambio"]);///convertendo para um formato enumerador
@@ -62,6 +62,7 @@ namespace Oficina.WebPages
             veiculo.Cor = corRepositorio.Obter(Convert.ToInt32(formulario["cor"]));
             veiculo.Observacao = formulario["observacao"];
             veiculo.Placa = formulario["placa"];
+            veiculo.TipoCarroceria = (TipoCarroceria)Convert.ToInt32(formulario["Tipo de Carroceria"]);
 
             veiculoRepositorio.Gravar(veiculo);
 

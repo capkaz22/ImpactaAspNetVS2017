@@ -10,6 +10,7 @@ namespace Oficina.Repositorios.SistemaArquivos
     {
         static string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
             ConfigurationManager.AppSettings["caminhoArquivoCor"]);
+        //ToDo: OO - Polimorfismo.
 
         public List<Cor> Obter()
         {
