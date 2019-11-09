@@ -11,12 +11,18 @@ using System.Xml.Serialization;
 
 namespace Oficina.Repositorios.SistemaArquivos
 {
-    public class VeiculoRepositorio
+    public class VeiculoRepositorio : RepositorioBase
     {
-        static string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-            ConfigurationManager.AppSettings["caminhoArquivoVeiculo"]);
+        private XDocument arquivoXml;///esse cara é um field
 
-        XDocument arquivoXml = XDocument.Load(caminhoArquivo);
+        public VeiculoRepositorio() : base("caminhoArquivoVeiculo")
+        {
+            //arquivoXml = XDocument.Load(CaminhoArquivo);
+        }
+
+        //static string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+        //    ConfigurationManager.AppSettings["caminhoArquivoVeiculo"]);
+
 
         public void Gravar<T>(T veiculo)///Método Genérico
         {
@@ -25,8 +31,10 @@ namespace Oficina.Repositorios.SistemaArquivos
 
             serializador.Serialize(registro, veiculo);
 
+            arquivoXml = XDocument.Load(CaminhoArquivo);
+
             arquivoXml.Root.Add(XElement.Parse(registro.ToString()));
-            arquivoXml.Save(caminhoArquivo);
+            arquivoXml.Save(CaminhoArquivo);
         }
     }
 }

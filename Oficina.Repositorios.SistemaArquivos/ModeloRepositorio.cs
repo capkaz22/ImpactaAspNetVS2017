@@ -7,16 +7,24 @@ using System.Xml.Linq;
 
 namespace Oficina.Repositorios.SistemaArquivos
 {
-    public class ModeloRepositorio
+    public class ModeloRepositorio : RepositorioBase
     {
-        static string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-            ConfigurationManager.AppSettings["caminhoArquivoModelo"]);
+        private XDocument arquivoXml;
 
-        XDocument arquivoXml = XDocument.Load(caminhoArquivo);
+        public ModeloRepositorio() : base("caminhoArquivoModelo")
+        {
+            
+        }
+
+        //static string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+        //    ConfigurationManager.AppSettings["caminhoArquivoModelo"]);
+
 
         public List<Modelo> ObterPorMarca(int marcaId)
         {
             var modelos = new List<Modelo>();
+            arquivoXml = XDocument.Load(CaminhoArquivo);
+
 
             foreach (var elemento in arquivoXml.Descendants("modelo"))
             {
@@ -42,6 +50,8 @@ namespace Oficina.Repositorios.SistemaArquivos
         public Modelo Obter(int id)
         {
             Modelo modelo = null;
+            arquivoXml = XDocument.Load(CaminhoArquivo);
+
 
             foreach (var elemento in arquivoXml.Descendants("modelo"))
             {

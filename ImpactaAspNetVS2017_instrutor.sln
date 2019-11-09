@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficina.Repositorios.Sistem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficina.WebPages", "Oficina.WebPages\Oficina.WebPages.csproj", "{2ADA1B64-1CA2-4BB7-89BC-16F431E39A87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficina.DominioTests", "Oficina.DominioTests\Oficina.DominioTests.csproj", "{434644A2-699A-424D-B8D2-698E029F5ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet.Capitulo03.Portfolio", "AspNet.Capitulo03.Portfolio\AspNet.Capitulo03.Portfolio.csproj", "{9174F6EC-079D-4E9C-B861-B490BF767418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,14 @@ Global
 		{2ADA1B64-1CA2-4BB7-89BC-16F431E39A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ADA1B64-1CA2-4BB7-89BC-16F431E39A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ADA1B64-1CA2-4BB7-89BC-16F431E39A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434644A2-699A-424D-B8D2-698E029F5ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434644A2-699A-424D-B8D2-698E029F5ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434644A2-699A-424D-B8D2-698E029F5ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434644A2-699A-424D-B8D2-698E029F5ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9174F6EC-079D-4E9C-B861-B490BF767418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9174F6EC-079D-4E9C-B861-B490BF767418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9174F6EC-079D-4E9C-B861-B490BF767418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9174F6EC-079D-4E9C-B861-B490BF767418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +86,7 @@ Global
 		{7CA83158-4065-43C2-9203-25335FB41CFF} = {64EDFCE5-6934-4FD3-8FC7-59C2D232DB68}
 		{3A8674C5-8702-4692-BFE7-206CBE568C62} = {64EDFCE5-6934-4FD3-8FC7-59C2D232DB68}
 		{2ADA1B64-1CA2-4BB7-89BC-16F431E39A87} = {64EDFCE5-6934-4FD3-8FC7-59C2D232DB68}
+		{434644A2-699A-424D-B8D2-698E029F5ADD} = {64EDFCE5-6934-4FD3-8FC7-59C2D232DB68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {499A8260-2391-4815-A438-2CD5887A27CC}

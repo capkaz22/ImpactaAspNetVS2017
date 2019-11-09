@@ -1,5 +1,4 @@
-﻿
-@using Oficina.WebPages;
+﻿@using Oficina.WebPages;
 @{
     var aplicacao = new VeiculoAplicacao();
 }
@@ -9,11 +8,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Cadastro de veículos</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Noto Sans', sans-serif;
             font-size: 16px;
         }
 
@@ -32,24 +31,44 @@
             input[type=submit] {
                 width: 300px;
             }
-    </style>
 
+        #mensagemErro {
+            height: 40px;
+            background-color: #dc3545;
+            margin-bottom: 10px;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 40px;
+        }
+    </style>
 </head>
 <body>
-    @if (IsPost)//identifica se os dados foram postados
-    {
-        aplicacao.Gravar();
-        Response.Redirect("veiculo");///limpar a tela, abrindo a tela como se fosse a primeira vez
-    }
     <h1>Cadastro de veículos</h1>
     <hr />
+    @if (IsPost)
+    {
+        aplicacao.Gravar();
+
+        if (string.IsNullOrEmpty(aplicacao.MensagemErro))
+        {
+            Response.Redirect("veiculo");
+        }
+        else
+        {
+            <div id="mensagemErro">@aplicacao.MensagemErro</div>
+        }
+    }
     <form method="post">
         <label>Marca</label>
         <select onchange="obterModelos(this.value)" name="marca">
             <option value="">Selecione</option>
             @foreach (var marca in aplicacao.Marcas)
             {
-                <option value="@marca.Id" selected="@Convert.ToBoolean(marca.Id.ToString() == aplicacao.MarcaSelecionada)">@marca.Nome</option>
+                <option value="@marca.Id"
+                        selected="@Convert.ToBoolean(marca.Id.ToString() == aplicacao.MarcaSelecionada)">
+                    @marca.Nome
+                </option>
             }
         </select>
         <br />
@@ -74,7 +93,7 @@
         </select>
         <br />
 
-        <label>Combustivel</label>
+        <label>Combustível</label>
         <select name="combustivel">
             <option value="">Selecione</option>
             @foreach (var combustivel in aplicacao.Combustiveis)
@@ -84,7 +103,7 @@
         </select>
         <br />
 
-        <label>Cambio</label>
+        <label>Câmbio</label>
         <select name="cambio">
             <option value="">Selecione</option>
             @foreach (var cambio in aplicacao.Cambios)
@@ -95,11 +114,11 @@
         <br />
 
         <label for="placa">Placa</label>
-        <input type="text" name="placa" value="placa" />
+        <input type="text" name="placa" id="placa" />
         <br />
 
         <label for="ano">Ano</label>
-        <input type="text" name="ano" value="ano" />
+        <input type="text" name="ano" id="ano" />
         <br />
 
         <label for="observacao">Observação</label>
@@ -107,16 +126,15 @@
         <textarea name="observacao" id="observacao" cols="40" rows="10"></textarea>
         <br />
 
-        <input type="submit" value="Gravar"/>
-
-
+        <input type="submit" value="Gravar" />
     </form>
+
     <script type="text/javascript">
         function obterModelos(marcaId) {
             const nomePagina = document.location.pathname;
-            document.location.href = nomePagina + "?marcaId=" + marcaId;///recarregar a página
-        }
 
+            document.location.href = nomePagina + "?marcaId=" + marcaId;
+        }
     </script>
 
 </body>
