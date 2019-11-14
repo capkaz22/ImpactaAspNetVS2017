@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ViagensOnline.Dominio
+﻿namespace ViagensOnline.Dominio
 {
     public class Destino
     {
@@ -13,6 +7,5 @@ namespace ViagensOnline.Dominio
         public string Pais { get; set; }
         public string Cidade { get; set; }
         public string NomeImagem { get; set; }
-
     }
 }
